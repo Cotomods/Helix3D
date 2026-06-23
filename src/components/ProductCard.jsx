@@ -28,6 +28,10 @@ export default function ProductCard({ product, onViewDetails }) {
             <span style={styles.specLabel}>Medidas:</span>
             <span style={styles.specValue}>{product.dimensions}</span>
           </div>
+          <div style={styles.specItem}>
+            <span style={styles.specLabel}>Precio:</span>
+            <span style={{ ...styles.specValue, color: 'var(--primary)', fontWeight: '700' }}>{product.price}</span>
+          </div>
         </div>
 
         <p style={styles.description}>{product.description}</p>

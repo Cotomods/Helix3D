@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { X, MessageSquare, Shield, Clock, Compass, Ruler, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, MessageSquare, Shield, Clock, Compass, Ruler, ChevronLeft, ChevronRight, DollarSign } from 'lucide-react';
 import { config } from '../config';
 
 export default function ProductModal({ product, onClose }) {
@@ -29,7 +29,8 @@ export default function ProductModal({ product, onClose }) {
     `Hola! Estaba interesado en el producto "${product.name}".\n\n` +
     `• Material: ${product.material}\n` +
     `• Dimensiones: ${product.dimensions}\n` +
-    `• Terminación: ${product.finish}\n\n` +
+    `• Terminación: ${product.finish}\n` +
+    `• Precio: ${product.price}\n\n` +
     `¿Tenés disponibilidad para realizar este trabajo?`
   );
   
@@ -131,6 +132,14 @@ export default function ProductModal({ product, onClose }) {
                 <div>
                   <div style={styles.specLabel}>Tiempo Estimado</div>
                   <div style={styles.specVal}>{product.printTime}</div>
+                </div>
+              </div>
+
+              <div style={styles.specItem}>
+                <DollarSign size={18} style={styles.icon} />
+                <div>
+                  <div style={styles.specLabel}>Precio</div>
+                  <div style={{ ...styles.specVal, color: 'var(--primary)', fontWeight: '700' }}>{product.price}</div>
                 </div>
               </div>
             </div>

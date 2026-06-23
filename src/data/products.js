@@ -22,6 +22,7 @@ export const products = [
     images: [cyberpunkFigure, dragonBust, geometricLamp],
     material: 'PLA+ Alta Definición (Gris)',
     dimensions: '18cm x 10cm x 8cm',
+    price: '$18.500',
     finish: 'Retiro de soportes y post-procesado manual',
     printTime: '14 horas',
     difficulty: 'Media (Estructura compleja)'
@@ -35,6 +36,7 @@ export const products = [
     images: [headphoneStand, cableOrganizer, mechanicalGear],
     material: 'PLA+ de alta resistencia (Negro / Naranja)',
     dimensions: '25cm x 12cm x 14cm',
+    price: '$12.000',
     finish: 'Termoplástico texturizado y ensamblado',
     printTime: '12 horas',
     difficulty: 'Baja (Piezas mecánicas robustas)'
@@ -48,6 +50,7 @@ export const products = [
     images: [geometricLamp, cableOrganizer, headphoneStand],
     material: 'PLA Translúcido (Blanco)',
     dimensions: '20cm x 18cm x 18cm',
+    price: '$15.000',
     finish: 'Superficie lisa satinada',
     printTime: '15 horas',
     difficulty: 'Alta (Requiere control de retracción)'
@@ -61,6 +64,7 @@ export const products = [
     images: [cableOrganizer, mechanicalGear, headphoneStand],
     material: 'PLA Premium (Gris / Naranja)',
     dimensions: '8cm x 3cm x 2cm',
+    price: '$4.500',
     finish: 'Pulido suave',
     printTime: '3 horas',
     difficulty: 'Baja'
@@ -74,6 +78,7 @@ export const products = [
     images: [dragonBust, cyberpunkFigure, geometricLamp],
     material: 'Silk PLA (Cobre Metalizado)',
     dimensions: '16cm x 12cm x 11cm',
+    price: '$14.000',
     finish: 'Brillo metálico sedoso',
     printTime: '10 horas',
     difficulty: 'Media'
@@ -87,6 +92,7 @@ export const products = [
     images: [mechanicalGear, cableOrganizer, headphoneStand],
     material: 'PETG / ABS Industrial (Rojo / Negro)',
     dimensions: '12cm x 12cm x 4cm',
+    price: '$6.500',
     finish: 'Resistente al calor e impacto mecánico',
     printTime: '6 horas',
     difficulty: 'Media-Alta (Ajuste de tolerancias fino)'
