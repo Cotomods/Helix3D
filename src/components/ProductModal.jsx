@@ -210,7 +210,7 @@ const styles = {
   },
   imageColumn: {
     flex: '1 1 400px',
-    height: '450px',
+    minHeight: '450px',
     backgroundColor: 'var(--bg-image-fallback)',
     overflow: 'hidden',
     position: 'relative',
@@ -219,6 +219,9 @@ const styles = {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+    position: 'absolute',
+    top: 0,
+    left: 0,
   },
   infoColumn: {
     flex: '1.2 1 400px',
