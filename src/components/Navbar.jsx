@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Layers, Menu, X, Mail, Info } from 'lucide-react';
+import { Layers, Menu, X, Mail, Info, Sun, Moon } from 'lucide-react';
 import { config } from '../config';
 
-export default function Navbar() {
+export default function Navbar({ theme, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -24,6 +24,17 @@ export default function Navbar() {
           <a href="#catalog" style={styles.navLink}>Catálogo</a>
           <a href="#custom-order" style={styles.navLink}>Pedido Especial</a>
           <a href="#about" style={styles.navLink}>Tecnología</a>
+          
+          {/* Theme Toggle Button */}
+          <button 
+            onClick={toggleTheme} 
+            className="theme-toggle"
+            style={styles.themeToggle} 
+            aria-label="Alternar tema oscuro/claro"
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
           <a 
             href={`https://wa.me/${config.whatsappNumber}`} 
             target="_blank" 
@@ -47,13 +58,27 @@ export default function Navbar() {
           <a href="#catalog" onClick={toggleMenu} style={styles.mobileNavLink}>Catálogo</a>
           <a href="#custom-order" onClick={toggleMenu} style={styles.mobileNavLink}>Pedido Especial</a>
           <a href="#about" onClick={toggleMenu} style={styles.mobileNavLink}>Tecnología</a>
+          
+          {/* Mobile Theme Toggle Row */}
+          <div style={styles.mobileToggleRow}>
+            <span style={styles.mobileToggleText}>Modo {theme === 'dark' ? 'Oscuro' : 'Claro'}</span>
+            <button 
+              onClick={toggleTheme} 
+              className="theme-toggle"
+              style={styles.mobileThemeToggle} 
+              aria-label="Alternar tema"
+            >
+              {theme === 'dark' ? <Sun size={18} style={{ color: 'var(--primary)' }} /> : <Moon size={18} />}
+            </button>
+          </div>
+
           <a 
             href={`https://wa.me/${config.whatsappNumber}`} 
             target="_blank" 
             rel="noopener noreferrer" 
             onClick={toggleMenu}
             className="btn btn-primary"
-            style={{ width: '100%', marginTop: '10px' }}
+            style={{ width: '100%', marginTop: '5px' }}
           >
             Contacto Directo
           </a>
@@ -133,5 +158,43 @@ const styles = {
     fontWeight: '500',
     padding: '10px 0',
     borderBottom: '1px solid var(--border-light)',
+  },
+  themeToggle: {
+    background: 'none',
+    border: 'none',
+    color: 'var(--text-muted)',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '8px',
+    borderRadius: '50%',
+    transition: 'all var(--transition-fast)',
+    backgroundColor: 'var(--bg-darkest)',
+    border: '1px solid var(--border-light)',
+  },
+  mobileToggleRow: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '10px 0',
+    borderBottom: '1px solid var(--border-light)',
+  },
+  mobileToggleText: {
+    color: 'var(--text-main)',
+    fontSize: '1.1rem',
+    fontWeight: '500',
+  },
+  mobileThemeToggle: {
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '8px',
+    borderRadius: '50%',
+    backgroundColor: 'var(--bg-dark)',
+    border: '1px solid var(--border-light)',
   }
 };

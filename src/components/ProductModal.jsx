@@ -142,7 +142,7 @@ const styles = {
     width: '40px',
     height: '40px',
     borderRadius: '50%',
-    backgroundColor: 'rgba(0, 0, 0, 0.04)',
+    backgroundColor: 'var(--bg-close-btn)',
     border: '1px solid var(--border-light)',
     color: 'var(--accent)',
     display: 'flex',
@@ -161,7 +161,7 @@ const styles = {
   imageColumn: {
     flex: '1 1 400px',
     height: '450px',
-    backgroundColor: '#f3f4f6',
+    backgroundColor: 'var(--bg-image-fallback)',
     overflow: 'hidden',
   },
   image: {

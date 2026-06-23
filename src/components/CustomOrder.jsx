@@ -172,7 +172,7 @@ export default function CustomOrder() {
 const styles = {
   section: {
     padding: '100px 0',
-    background: 'radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.02) 0%, var(--bg-darkest) 70%)',
+    background: 'radial-gradient(ellipse at bottom, var(--radial-glow) 0%, var(--bg-darkest) 70%)',
   },
   gridContainer: {
     display: 'flex',

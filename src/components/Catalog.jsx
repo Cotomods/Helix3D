@@ -149,7 +149,7 @@ const styles = {
   searchInput: {
     width: '100%',
     padding: '12px 16px 12px 42px',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'var(--bg-input)',
     border: '1px solid var(--border-light)',
     borderRadius: '12px',
     color: 'var(--text-main)',
@@ -164,7 +164,7 @@ const styles = {
   },
   categoryPill: {
     padding: '10px 18px',
-    background: '#ffffff',
+    background: 'var(--bg-input)',
     border: '1px solid var(--border-light)',
     borderRadius: '30px',
     color: 'var(--text-muted)',

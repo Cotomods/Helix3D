@@ -112,7 +112,7 @@ const styles = {
     marginBottom: '14px',
     fontSize: '0.85rem',
     padding: '10px 14px',
-    backgroundColor: '#f9fafb',
+    backgroundColor: 'var(--bg-specs)',
     borderRadius: '8px',
     border: '1px solid var(--border-light)',
   },
