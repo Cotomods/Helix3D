@@ -303,6 +303,18 @@ nav a:hover {
   transform: scale(1.05);
 }
 
+.slider-btn:hover {
+  background-color: rgba(255, 90, 31, 0.85) !important;
+  border-color: var(--primary) !important;
+  color: #ffffff !important;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.slider-dot:hover {
+  background-color: var(--primary) !important;
+  transform: scale(1.2);
+}
+
 /* Product Card Image Zoom on Hover */
 .glass-panel:hover img {
   transform: scale(1.03);

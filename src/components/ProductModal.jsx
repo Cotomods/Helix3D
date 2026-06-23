@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
-import { X, MessageSquare, Shield, Clock, Compass, Ruler } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { X, MessageSquare, Shield, Clock, Compass, Ruler, ChevronLeft, ChevronRight } from 'lucide-react';
 import { config } from '../config';
 
 export default function ProductModal({ product, onClose }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   // Prevent background scrolling when modal is open
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -12,6 +14,16 @@ export default function ProductModal({ product, onClose }) {
   }, []);
 
   if (!product) return null;
+
+  const images = product.images && product.images.length > 0 ? product.images : [product.image];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
 
   const whatsappMessage = encodeURIComponent(
     `Hola! Estaba interesado en el producto "${product.name}".\n\n` +
@@ -37,9 +49,47 @@ export default function ProductModal({ product, onClose }) {
 
         {/* Modal Grid */}
         <div style={styles.modalGrid}>
-          {/* Left Column: Image */}
+          {/* Left Column: Image Slider */}
           <div style={styles.imageColumn}>
-            <img src={product.image} alt={product.name} style={styles.image} />
+            <img src={images[currentImageIndex]} alt={product.name} style={styles.image} />
+            
+            {/* Slider Navigation Buttons */}
+            {images.length > 1 && (
+              <>
+                <button 
+                  onClick={prevImage} 
+                  className="slider-btn"
+                  style={{ ...styles.sliderBtn, ...styles.sliderBtnLeft }}
+                  aria-label="Imagen anterior"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button 
+                  onClick={nextImage} 
+                  className="slider-btn"
+                  style={{ ...styles.sliderBtn, ...styles.sliderBtnRight }}
+                  aria-label="Siguiente imagen"
+                >
+                  <ChevronRight size={20} />
+                </button>
+                
+                {/* Dots indicator */}
+                <div style={styles.dotsContainer}>
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className="slider-dot"
+                      style={{
+                        ...styles.dot,
+                        ...(currentImageIndex === index ? styles.dotActive : {})
+                      }}
+                      aria-label={`Ir a la imagen ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
 
           {/* Right Column: Information */}
@@ -163,6 +213,7 @@ const styles = {
     height: '450px',
     backgroundColor: 'var(--bg-image-fallback)',
     overflow: 'hidden',
+    position: 'relative',
   },
   image: {
     width: '100%',
@@ -242,5 +293,53 @@ const styles = {
     fontSize: '1.05rem',
     fontWeight: '600',
     borderRadius: '14px',
+  },
+  sliderBtn: {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    width: '36px',
+    height: '36px',
+    borderRadius: '50%',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    color: '#ffffff',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'pointer',
+    zIndex: 5,
+    transition: 'all var(--transition-fast)',
+  },
+  sliderBtnLeft: {
+    left: '12px',
+  },
+  sliderBtnRight: {
+    right: '12px',
+  },
+  dotsContainer: {
+    position: 'absolute',
+    bottom: '16px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    display: 'flex',
+    gap: '6px',
+    zIndex: 5,
+  },
+  dot: {
+    width: '8px',
+    height: '8px',
+    borderRadius: '50%',
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    border: 'none',
+    cursor: 'pointer',
+    padding: 0,
+    transition: 'all var(--transition-fast)',
+  },
+  dotActive: {
+    backgroundColor: 'var(--primary)',
+    transform: 'scale(1.2)',
+    width: '10px',
+    height: '10px',
   }
 };
