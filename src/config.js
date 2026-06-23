@@ -4,7 +4,7 @@ export const config = {
   whatsappNumber: "5491136367039", // Reemplazar con tu número de WhatsApp real (código de país + número, sin espacios ni caracteres especiales)
   socials: {
     instagram: "helix3d.print", // Tu usuario de Instagram
-    email: "contacto@helix3d.com",
+    email: "helix3dprints99@gmail.com",
     location: "Buenos Aires, Argentina"
   },
   printingSpecs: {
