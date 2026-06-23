@@ -53,8 +53,6 @@ export default function Hero() {
         {/* Right Column: Interactive CSS Animation of a 3D Printer Printing */}
         <div style={styles.visualColumn}>
           <div style={styles.printerContainer}>
-            {/* The Printing Bed Grid */}
-            <div style={styles.printerBed}></div>
             
             {/* The 3D Object being printed (parametric shape) */}
             <svg style={styles.printedObject} viewBox="0 0 100 100">
@@ -151,16 +149,6 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  printerBed: {
-    position: 'absolute',
-    bottom: '10px',
-    width: '260px',
-    height: '14px',
-    background: 'var(--printer-bed-bg)',
-    border: '1px solid var(--printer-bed-border)',
-    borderRadius: '4px',
-    boxShadow: '0 5px 15px rgba(0,0,0,0.05)',
   },
   printedObject: {
     width: '200px',
